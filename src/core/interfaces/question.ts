@@ -1,9 +1,14 @@
-import { QuestionLevelType } from '../enums/question-level.ts';
+import { QuestionLevelType } from '../enums';
 
 export interface Question {
+  name: string;
+  id: string | number;
+}
+
+export interface Quiz {
   id: number;
   level: QuestionLevelType;
   question: string;
-  options: string[];
-  answer: string;
+  options: Question[];
+  answer: Question;
 }

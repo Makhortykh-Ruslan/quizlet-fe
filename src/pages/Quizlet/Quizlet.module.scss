@@ -1,0 +1,86 @@
+@use "../../assets/styles/variables" as *;
+@use "../../assets/styles/mixins" as *;
+@use "../../assets/styles/typography" as *;
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 40px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+
+  @include media(lg) {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.time {
+  @include text-style(30px, 400, $Satoshi);
+
+  color: $text-primary;
+}
+
+.title {
+  @include text-style(30px, 400, $Satoshi);
+
+  color: $text-primary;
+
+  @include media(lg) {
+    font-size: 20px;
+  }
+
+  @include media(md) {
+    font-size: 13px;
+  }
+}
+
+.difficult {
+  @include text-style(30px, 400, $Satoshi);
+
+  color: $primary-color;
+  text-transform: uppercase;
+  margin-left: auto;
+
+
+  @include media(lg) {
+    font-size: 20px;
+    margin-left: initial;
+  }
+
+  @include media(md) {
+    font-size: 13px;
+  }
+}
+
+.question {
+  @include text-style(30px, 400, $Satoshi);
+
+  color: $text-primary;
+
+  @include media(lg) {
+    font-size: 20px;
+  }
+
+  @include media(md) {
+    font-size: 13px;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}

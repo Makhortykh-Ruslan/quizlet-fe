@@ -1,35 +1,34 @@
-import { lazy, Suspense } from 'react';
-import { createBrowserRouter, RouteObject } from 'react-router-dom';
+import { JSX, lazy } from 'react';
+import {
+  createBrowserRouter,
+  Navigate,
+  RouteObject,
+  RouterProvider,
+} from 'react-router-dom';
+import { RouterPath } from './core/enums';
 
 const Welcome = lazy(() => import('../src/pages/Welcome/Welcome.tsx'));
 const Quizlet = lazy(() => import('../src/pages/Quizlet/Quizlet.tsx'));
-const NotFound = lazy(() => import('../src/pages/NotFound/NotFound.tsx'));
 
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: (
-      <Suspense>
-        <Welcome />
-      </Suspense>
-    ),
+    element: <Welcome />,
   },
   {
-    path: '/quiz',
-    element: (
-      <Suspense>
-        <Quizlet />
-      </Suspense>
-    ),
+    path: RouterPath.QUIZLET,
+    element: <Quizlet />,
   },
   {
     path: '*',
-    element: (
-      <Suspense>
-        <NotFound />
-      </Suspense>
-    ),
+    element: <Navigate to="/" replace />,
   },
 ] as RouteObject[];
 
-export const appRouters = createBrowserRouter(routes);
+const appRouters = createBrowserRouter(routes);
+
+const AppRouters = (): JSX.Element => {
+  return <RouterProvider router={appRouters} />;
+};
+
+export default AppRouters;

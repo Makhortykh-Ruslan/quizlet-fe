@@ -1,0 +1,23 @@
+@use "../../../../assets/styles/variables" as *;
+@use "../../../../assets/styles/mixins" as *;
+@use "../../../../assets/styles/typography" as *;
+
+.component {
+  width: 300px;
+  background-color: $info-color;
+  border-radius: 12px;
+  padding: 12px 16px;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+
+  &:hover {
+    background-color: rebeccapurple;
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+}
+
+.text {
+  @include text-style(16px, 400, $Satoshi);
+
+  color: $text-light;
+}

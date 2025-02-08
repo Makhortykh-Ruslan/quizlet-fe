@@ -1,5 +1,4 @@
 export const RouterPath = {
   QUIZLET: '/quizlet',
+  FINISH: '/finish',
 } as const;
-
-export type RouterPathType = (typeof RouterPath)[keyof typeof RouterPath];

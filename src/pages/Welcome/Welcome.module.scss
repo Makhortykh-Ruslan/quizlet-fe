@@ -1,0 +1,25 @@
+@use "../../assets/styles/variables" as *;
+@use "../../assets/styles/mixins" as *;
+@use "../../assets/styles/typography" as *;
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  @include text-style(30px, 700, $Satoshi);
+
+  color: $text-primary;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  @include text-style(20px, 700, $Satoshi);
+
+  color: $text-secondary;
+}

@@ -1,0 +1,16 @@
+@use "../../../../assets/styles/variables" as *;
+@use "../../../../assets/styles/mixins" as *;
+@use "../../../../assets/styles/typography" as *;
+
+.component {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+
+  & > * {
+    width: 200px;
+  }
+}
