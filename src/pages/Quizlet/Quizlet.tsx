@@ -86,7 +86,7 @@ const Quizlet = memo(() => {
         {!state.isFinished &&
           options.map((el) => (
             <ItemQuestion
-              onClick={handleSelectAnswer}
+              handleSelectAnswer={handleSelectAnswer}
               key={el.id}
               id={el.id}
               name={el.name}

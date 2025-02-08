@@ -6,7 +6,7 @@ import Signed from './core/components/Signed/Signed.tsx';
 const App: FC = () => (
   <div>
     <AppQuizletProvider>
-      <AppRouters></AppRouters>
+      <AppRouters />
     </AppQuizletProvider>
     <Signed />
   </div>

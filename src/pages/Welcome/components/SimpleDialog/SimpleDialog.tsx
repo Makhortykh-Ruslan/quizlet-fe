@@ -6,6 +6,15 @@ import Button from '@mui/material/Button';
 import { MOCK_LEVEL_LIST } from '../../../../core/constants';
 import styles from './SimpleDialog.module.scss';
 
+type Color =
+  | 'secondary'
+  | 'success'
+  | 'error'
+  | 'inherit'
+  | 'primary'
+  | 'info'
+  | 'warning';
+
 export interface SimpleDialogProps {
   open: boolean;
   onClose: (value: any) => void;
@@ -32,7 +41,7 @@ export const SimpleDialog: (props: SimpleDialogProps) => JSX.Element = (
           <Button
             key={el.id}
             variant="outlined"
-            color={el.color}
+            color={el.color as Color}
             onClick={() => handleListItemClick(el)}
           >
             {el.name}

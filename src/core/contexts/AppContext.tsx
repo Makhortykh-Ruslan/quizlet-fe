@@ -1,14 +1,14 @@
 import React, { createContext, useContext, ReactNode, useReducer } from 'react';
 import { QuizletActionsType } from '../types/actions.ts';
-import { ActionsName, QuestionLevel } from '../enums';
+import { ActionsName, QuestionLevel, QuestionLevelType } from '../enums';
 import { MOCK_QUESTIONS_MAP } from '../constants';
 import { Quiz } from '../interfaces/question.ts';
 
 type AppQuestionState = {
   time: number;
   points: number;
-  difficult: string;
-  questions: Quiz[];
+  difficult: QuestionLevelType;
+  questions: Quiz[] | undefined;
   questionIdx: number;
   isFinished: boolean;
 };
@@ -30,15 +30,16 @@ const counterReducer = (
     case ActionsName.NEXT_STEP:
       return {
         ...state,
-        difficult: action.payload.name,
-        questions: MOCK_QUESTIONS_MAP.get(action.payload.name),
-      };
+        difficult: action['payload'].name,
+        questions: MOCK_QUESTIONS_MAP.get(action['payload'].name),
+      } as AppQuestionState;
 
     case ActionsName.SELECT_ANSWER:
       return {
         ...state,
         points:
-          action.payload.name === state.questions[state.questionIdx].answer.name
+          action['payload'].name ===
+          state.questions[state.questionIdx].answer.name
             ? state.points + 1
             : state.points,
         questionIdx:

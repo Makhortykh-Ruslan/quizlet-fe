@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './Welcome.module.scss';
 import Button from '@mui/material/Button';
 import { SimpleDialog } from './components/SimpleDialog/SimpleDialog.tsx';
+import { Question } from '../../core/interfaces/question.ts';
 
 const Welcome: () => JSX.Element = () => {
   const [open, setOpen] = useState(false);
@@ -15,7 +16,7 @@ const Welcome: () => JSX.Element = () => {
     setOpen(true);
   };
 
-  const handleClose = (value: string): void => {
+  const handleClose = (value: Question): void => {
     setOpen(false);
 
     if (!value) return;
